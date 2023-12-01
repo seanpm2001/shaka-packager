@@ -1,6 +1,60 @@
 # Changelog
 
 
+## [3.0.0](https://github.com/shaka-project/shaka-packager/compare/v2.6.1...v3.0.0) (2023-12-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update all dependencies
+* Drop Python 2 support in all scripts
+* Replace glog with absl::log, tweak log output and flags
+* Replace gyp build system with CMake
+
+### Features
+
+* Add install target to build system ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Add xHE-AAC support ([#1092](https://github.com/shaka-project/shaka-packager/issues/1092)) ([5d998fc](https://github.com/shaka-project/shaka-packager/commit/5d998fca7fb1d3d9c98f5b26561f842edcb2a925))
+* **DASH:** Add video transfer characteristics. ([#1210](https://github.com/shaka-project/shaka-packager/issues/1210)) ([8465f5f](https://github.com/shaka-project/shaka-packager/commit/8465f5f020b5c6152d24107a6d164301e05c3176))
+* Drop Python 2 support in all scripts ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Generate the entire AV1 codec string when the colr atom is present ([#1205](https://github.com/shaka-project/shaka-packager/issues/1205)) ([cc9a691](https://github.com/shaka-project/shaka-packager/commit/cc9a691aef946dfb4d68077d3a741ef1b88d2f21)), closes [#1007](https://github.com/shaka-project/shaka-packager/issues/1007)
+* Move all third-party deps into git submodules ([#1083](https://github.com/shaka-project/shaka-packager/issues/1083)) ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Replace glog with absl::log, tweak log output and flags ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Replace gyp build system with CMake ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca)), closes [#1047](https://github.com/shaka-project/shaka-packager/issues/1047)
+* Respect the file mode for HttpFiles ([#1081](https://github.com/shaka-project/shaka-packager/issues/1081)) ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Update all dependencies ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Write colr atom to muxed mp4 ([#1261](https://github.com/shaka-project/shaka-packager/issues/1261)) ([f264bef](https://github.com/shaka-project/shaka-packager/commit/f264befe868a9fbf054697a6d06218cc25de055d)), closes [#1202](https://github.com/shaka-project/shaka-packager/issues/1202)
+
+
+### Bug Fixes
+
+* Accept 100% when parsing WEBVTT regions ([#1006](https://github.com/shaka-project/shaka-packager/issues/1006)) ([e1b0c7c](https://github.com/shaka-project/shaka-packager/commit/e1b0c7c45431327fd3ce193514a5407d07b39b22)), closes [#1004](https://github.com/shaka-project/shaka-packager/issues/1004)
+* Add missing &lt;cstdint&gt; includes ([#1306](https://github.com/shaka-project/shaka-packager/issues/1306)) ([ba5c771](https://github.com/shaka-project/shaka-packager/commit/ba5c77155a6b0263f48f24f93033c7a386bc83b6)), closes [#1305](https://github.com/shaka-project/shaka-packager/issues/1305)
+* dash_roles add role=description for DVS audio per DASH-IF-IOP-v4.3 ([#1054](https://github.com/shaka-project/shaka-packager/issues/1054)) ([dc03952](https://github.com/shaka-project/shaka-packager/commit/dc0395291a090b342beaab2e89c627dc33ee89b0))
+* Don't close upstream on HttpFile::Flush ([#1201](https://github.com/shaka-project/shaka-packager/issues/1201)) ([53d91cd](https://github.com/shaka-project/shaka-packager/commit/53d91cd0f1295a0c3456cb1a34e5235a0316c523)), closes [#1196](https://github.com/shaka-project/shaka-packager/issues/1196)
+* Fix build errors related to std::numeric_limits ([#972](https://github.com/shaka-project/shaka-packager/issues/972)) ([9996c73](https://github.com/shaka-project/shaka-packager/commit/9996c736aea79e0cce22bee18dc7dcabfffff47b))
+* Fix build on FreeBSD ([#1287](https://github.com/shaka-project/shaka-packager/issues/1287)) ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Fix clang build ([#1288](https://github.com/shaka-project/shaka-packager/issues/1288)) ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Fix failure on very short WebVTT files ([#1216](https://github.com/shaka-project/shaka-packager/issues/1216)) ([dab165d](https://github.com/shaka-project/shaka-packager/commit/dab165d3e5d979e2e5ff783d91d948357b932078)), closes [#1217](https://github.com/shaka-project/shaka-packager/issues/1217)
+* Fix handling of non-interleaved multi track FMP4 files ([#1214](https://github.com/shaka-project/shaka-packager/issues/1214)) ([dcf3225](https://github.com/shaka-project/shaka-packager/commit/dcf32258ffd725bc3de06c9bceb86fc8a403ecba)), closes [#1213](https://github.com/shaka-project/shaka-packager/issues/1213)
+* Fix issues with `collections.abc` in Python 3.10+ ([#1188](https://github.com/shaka-project/shaka-packager/issues/1188)) ([80e0240](https://github.com/shaka-project/shaka-packager/commit/80e024013df87a4bfeb265c8ea83cfa2a0c5db0f)), closes [#1192](https://github.com/shaka-project/shaka-packager/issues/1192)
+* Fix local files with UTF8 names ([#1246](https://github.com/shaka-project/shaka-packager/issues/1246)) ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Fix Python 3.10+ compatibility in scripts ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Fix various build issues on macOS ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* Fix various build issues on Windows ([3e71302](https://github.com/shaka-project/shaka-packager/commit/3e71302ba46e5164db91495c5da5ba07fc88cfca))
+* hls, set the DEFAULT explicitly to NO. Supports native HLS players. ([#1170](https://github.com/shaka-project/shaka-packager/issues/1170)) ([1ab6818](https://github.com/shaka-project/shaka-packager/commit/1ab68188326685ab4e427e7a6eab0694e0b0b60a)), closes [#1169](https://github.com/shaka-project/shaka-packager/issues/1169)
+* Indexing `bytes` produces `int` on python3 for `pssh-box.py` ([#1228](https://github.com/shaka-project/shaka-packager/issues/1228)) ([d9d3c7f](https://github.com/shaka-project/shaka-packager/commit/d9d3c7f8be13e493a99b2ff4b72a402c441c1666)), closes [#1227](https://github.com/shaka-project/shaka-packager/issues/1227)
+* Low Latency DASH: include the "availabilityTimeComplete=false" attribute ([#1198](https://github.com/shaka-project/shaka-packager/issues/1198)) ([d687ad1](https://github.com/shaka-project/shaka-packager/commit/d687ad1ed00da260c4f4e5169b042ef4291052a0))
+* **MP4:** Add compatible brand dby1 for Dolby content. ([#1211](https://github.com/shaka-project/shaka-packager/issues/1211)) ([520926c](https://github.com/shaka-project/shaka-packager/commit/520926c27ad0d183127e4548c4564af33a2ad2f3))
+* Parse one frame mpeg-ts video ([#1015](https://github.com/shaka-project/shaka-packager/issues/1015)) ([b221aa9](https://github.com/shaka-project/shaka-packager/commit/b221aa9caf4f8357a696f3265d1e2a5bf504dbd9)), closes [#1013](https://github.com/shaka-project/shaka-packager/issues/1013)
+* Prevent crash in GetEarliestTimestamp() if periods are empty ([#1173](https://github.com/shaka-project/shaka-packager/issues/1173)) ([d6f28d4](https://github.com/shaka-project/shaka-packager/commit/d6f28d456c6ec5ecf39c868447d85294a698166d)), closes [#1172](https://github.com/shaka-project/shaka-packager/issues/1172)
+* PTS diverge DTS when DTS close to 2pow33 and PTS more than 0 ([#1050](https://github.com/shaka-project/shaka-packager/issues/1050)) ([ab8ab12](https://github.com/shaka-project/shaka-packager/commit/ab8ab12d098c352372014180bd2cb5407e018739)), closes [#1049](https://github.com/shaka-project/shaka-packager/issues/1049)
+* Roll back depot_tools, bypass vpython ([#1045](https://github.com/shaka-project/shaka-packager/issues/1045)) ([3fd538a](https://github.com/shaka-project/shaka-packager/commit/3fd538a587184a87e2b41a526e089247007aa526)), closes [#1023](https://github.com/shaka-project/shaka-packager/issues/1023)
+* TTML generator timestamp millisecond formatting ([#1179](https://github.com/shaka-project/shaka-packager/issues/1179)) ([494769c](https://github.com/shaka-project/shaka-packager/commit/494769ca864e04d582f707934a6573cad78d2e8c)), closes [#1180](https://github.com/shaka-project/shaka-packager/issues/1180)
+* Update golden files for ttml tests and failing hls unit tests. ([#1226](https://github.com/shaka-project/shaka-packager/issues/1226)) ([ac47e52](https://github.com/shaka-project/shaka-packager/commit/ac47e529ad7b69cc232f7f96e2a042990505776f))
+* Update to use official FairPlay UUID. ([#1281](https://github.com/shaka-project/shaka-packager/issues/1281)) ([ac59b9e](https://github.com/shaka-project/shaka-packager/commit/ac59b9ebc94018b216c657854ca5163c9d2e7f31))
+* webvtt single cue do not fail on EOS ([#1061](https://github.com/shaka-project/shaka-packager/issues/1061)) ([b9d477b](https://github.com/shaka-project/shaka-packager/commit/b9d477b969f34124dfe184b4ac1d00ea8faf0a7d)), closes [#1018](https://github.com/shaka-project/shaka-packager/issues/1018)
+
 ## [2.6.1] - 2021-10-14
 ### Fixed
  - Fix crash in static-linked linux builds (#996)
